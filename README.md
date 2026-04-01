@@ -16,6 +16,10 @@ I work very closely with my UROPs (feel free to talk to `dtemkin` or `yevivian` 
 
 I have structured the assessment around a pre-print of [Manxi Wu](https://sites.google.com/view/manxi-wu/home), who has also been supervised by my co-PI [Saurabh Amin](https://cee.mit.edu/people_individual/saurabh-amin/). The paper is available [online](https://arxiv.org/abs/1908.07105) or [in the `paper` folder](./paper/Wu%20and%20Amin%20-%202019%20-%20Information%20Design%20for%20Regulating%20Traffic%20Flows%20under%20Uncertain%20Network%20State.pdf). The paper seeks to address the concern of routing systems (think Google Maps) suggesting routes that can lead to severe congestion on urban streets, such as routing commuters through residential streets. How can cities and transportation agencies (called "central authorities") reduce the traffic above certain limits (spillover) by changing what information one provides travelers?
 
+<div align="center">
+  <img src="./figures/problem_visualization.png" width="400" alt="visualization of the studied problem graph.">
+</div>
+
 Thus, the paper studies information design in a stylized two-route $\{r_1,r_2\}$ congestion game with an uncertain network state. Route $r_1$ can experience an accident (which increases congestions) with probability $p$, while $r_2$ is not prone to accidents. A central authority then observes the realized state and commits to a noisy signaling scheme for a fraction $\lambda$ of travelers among the total demand $D$.
 
 The key point is that fully revealing an accident to too many informed travelers can trigger excessive diversion from $r_1$ to $r_2$, creating spillover congestion on the alternate route $r_2$. The paper then characterizes the optimal signaling scheme that minimizes expected spillover on $r_2$ above a threshold $\tau$, under the Bayesian Wardrop equilibrium. Its main takeaway is that partial and selective revelation can outperform both no information and full revelation.
