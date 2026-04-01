@@ -52,3 +52,9 @@ Now, this is the work I ask you to do:
 2. Set up the environment using `uv` locally on your machine.
 3. Try to run `experiments.py` for which you will have to address all the `TODO`'s that I put out for you.
 4. Write me an email when you think you're done or at a good stage.
+
+And this is how it should look like in the end, when you successfully ran the `experiments.py` file with the sample values reported in the paper.
+
+<div align="center">
+  <img src="./figures/results.png" width="500" alt="visualization of sample results when using the paper's toy example values.">
+</div>
