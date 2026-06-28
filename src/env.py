@@ -10,7 +10,26 @@ Lambda = Enum("Lambda", "L1 L2 L3")
 
 
 class BaseEnv(BaseModel, ABC):
-    # TODO: Fill the missing parameters with correct typing and comments
+    # Congestion parameters
+    alpha_1_a: float
+    alpha_1_n: float
+    alpha_2: float
+
+    # Probability of accident
+    p: float = Field(..., ge=0, le=1)
+
+    # Free-flow travel times
+    b_1: float
+    b_2: float
+
+    # Population parameter
+    pop_lambda: float = Field(..., ge=0, le=1)
+
+    # Total demand
+    D: int = Field(..., gt=0)
+
+    # Threshold
+    tau: float = Field(..., gt=0)
 
     @model_validator(mode="after")
     def validate_b_ordering(self):
@@ -41,7 +60,7 @@ class BaseEnv(BaseModel, ABC):
 
     @property
     def cost_diff(self):
-        raise NotImplementedError("You gotta implement this method in the subclass")
+        return self.alpha_2 * self.D + self.b_2 - self.b_1
 
     @property
     def p_top(self):

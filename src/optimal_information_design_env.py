@@ -1,11 +1,9 @@
 from pydantic import model_validator
 
-from env import Accident, Lambda
+from env import BaseEnv, Accident, Lambda
 
 
-# TODO: Figure out what's wrong here
-class OptimalInformationDesignEnv:
-    
+class OptimalInformationDesignEnv(BaseEnv):
     @model_validator(mode="after")
     def validate_tau(self):
         ub = self.D - (self.cost_diff) / (self.alpha_1_a + self.alpha_2)

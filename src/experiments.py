@@ -6,9 +6,21 @@ from optimal_information_design_env import OptimalInformationDesignEnv
 
 
 if __name__ == "__main__":
-    
+    D = 10
+    tau = 2.5
+    p = 0.3
+    pop_lambda = 0.5
+
     env = OptimalInformationDesignEnv(
-        # TODO: fill in the parameters here
+        alpha_1_a=3,
+        alpha_1_n=1,
+        alpha_2=2,
+        p=p,
+        b_1=15,
+        b_2=20,
+        pop_lambda=pop_lambda,
+        D=D,
+        tau=tau,
     )
 
     # Verify pop_lambda_top and pop_lambda_bottom calculations
@@ -19,7 +31,15 @@ if __name__ == "__main__":
     pop_lambda = np.linspace(0, 1, 100)
     envs = [
         OptimalInformationDesignEnv(
-            # TODO: fill in the parameters here
+            alpha_1_a=3,
+            alpha_1_n=1,
+            alpha_2=2,
+            p=p,
+            b_1=15,
+            b_2=20,
+            pop_lambda=pl,
+            D=D,
+            tau=tau,
         )
         for pl in pop_lambda
     ]
@@ -115,10 +135,6 @@ if __name__ == "__main__":
         ax.vlines(env.pop_lambda_bottom, 0, 50, color="gray", linestyle="--", alpha=0.5)
         ax.vlines(env.pop_lambda_top, 0, 50, color="gray", linestyle="--", alpha=0.5)
         ax.legend()
-    
-    # TODO Food for thought:
-    # - How do the plots change as we vary the probability of an accident?
-    # - What can we say about the optimal information design problem in the different regimes?
-    # - And what are the implications of the three information designs that we have analyzed here?
 
+    fig.savefig("./optimal_information_design_results.png", dpi=400, bbox_inches="tight")
     plt.show()
